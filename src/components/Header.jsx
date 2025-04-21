@@ -16,10 +16,10 @@ const Header = () => {
   let [open, setOpen] = useState(false);
 
   return (
-    <div className="w-full max-w-7xl">
+    <div className="w-full  top-0 left-0 z-50 bg-[#1a1a29]">
       <div className="md:flex items-center justify-between py-4 md:px-10 px-7">
         {/* logo section */}
-        <div className="font-bold text-2xl cursor-pointer flex items-center gap-1">
+        <div className="font-bold text-3xl cursor-pointer flex items-center gap-1">
           <span className="text-primary hover:text-white">
             Akinwande-Ajose Aaron
           </span>
@@ -38,7 +38,7 @@ const Header = () => {
           }`}
         >
           {Links.map((link) => (
-            <li className="md:ml-8 md:my-0 my-7 font-semibold" key={link.name}>
+            <li className="md:ml-8 md:my-0 my-7 text-xl cursor-pointer font-semibold" key={link.name}>
               <Link
                 to={link.link}
                 activeClass="active"

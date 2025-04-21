@@ -3,6 +3,7 @@ import emailjs from "@emailjs/browser";
 import facebook from "../assets/socials/facebook.png";
 import instagram from "../assets/socials/instagram.png";
 import email from "../assets/socials/sms.png";
+import { FaLinkedin } from "react-icons/fa6";
 
 const Contact = () => {
   const form = useRef();
@@ -60,6 +61,17 @@ const Contact = () => {
               // rel="noreferrer"
             >
               <img src={email} alt="" />
+            </a>
+            <a
+              className="ml-4"
+              href="https://www.linkedin.com/in/aaron-akinwande-ajose-720b18288"
+              target="_blank"
+              // rel="noreferrer"
+            >
+              <div className=" text-[#7562e0] h-full w-full text-3xl rounded-lg flex justify-center items-center">
+
+              <FaLinkedin />
+              </div>
             </a>
           </div>
         </div>
