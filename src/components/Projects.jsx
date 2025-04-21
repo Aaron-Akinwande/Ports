@@ -15,7 +15,7 @@ const Projects = () => {
       title: "UsePeng",
       description:
         "A company website that allows couples to plan their dream weddings from the comfort of their devices.",
-      photo: "/src/assets/projects/img2.png",
+      photo: "/peng.png",
       git: "https://usepeng.com/",
       url: "https://github.com/Community-With-No-Name/peng",
     },
