@@ -12,7 +12,7 @@ function App() {
 
   return (
     <>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto  pt-4">
         <Header/>
         <Home/>
         <About/>

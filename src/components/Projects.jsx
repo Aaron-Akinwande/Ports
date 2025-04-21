@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-scroll";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
     {
       title: "Weather-On-The-Go",
       description:
-        "A live website for finding real-time information about the weather around you or in particular location.",
+        "A live website for finding real-time information about the weather around you or in a particular location.",
       photo: "/wotg.jpg",
       git: "https://github.com/Aaron-Akinwande/Weather-On-The-Go",
       url: "https://weather-on-the-go.netlify.app/",
@@ -14,7 +14,7 @@ const Projects = () => {
     {
       title: "UsePeng",
       description:
-        "A company website  which allows couples to plan their dream weddings from the comfort of there devices",
+        "A company website that allows couples to plan their dream weddings from the comfort of their devices.",
       photo: "/src/assets/projects/img2.png",
       git: "https://usepeng.com/",
       url: "https://github.com/Community-With-No-Name/peng",
@@ -28,53 +28,68 @@ const Projects = () => {
       url: "https://www.easysch.com/best-college/login",
     },
   ];
-  return (
-    <div className="md:px-10 px-7 my-8" id="projects">
-      <h1 className="text-primary font-semibold text-3xl mt-16">
-        Featured projects:
-      </h1>
-      <p className="my-3 text-white md:w-3/4 leading-[2]">
-        I have worked on many projects over the course of being a Web Developer,
-        here are a few of my live, real-world projects
-      </p>
-      {/* featured projects */}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 my-6 items-center justify-center">
-        {projects.map((project, index) => {
-          return (
-            <div
-              key={index}
-              className="flex flex-col shadow-sm md:w-[343px] bg-[#31313F] p-4 rounded"
-            >
+  return (
+    <div className="md:px-10 px-6 my-16" id="projects">
+      <motion.h1
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-primary font-bold text-3xl mb-4"
+      >
+        Featured Projects
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-white text-base md:w-2/3 leading-relaxed mb-8"
+      >
+        I have worked on many projects over the course of being a Web Developer.
+        Here are a few of my live, real-world projects:
+      </motion.p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {projects.map((project, index) => (
+          <motion.div
+            key={index}
+            className="bg-[#31313F] rounded-lg p-4 shadow-sm hover:shadow-md transition-all duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.2, duration: 0.5 }}
+            viewport={{ once: true }}
+          >
+            <a href={project.url} target="_blank" rel="noreferrer">
+              <img
+                src={project.photo}
+                alt={project.title}
+                className="w-full h-48 object-cover rounded mb-4"
+              />
+            </a>
+            <h3 className="text-primary font-semibold text-lg mb-1">{project.title}</h3>
+            <p className="text-white text-sm mb-4">{project.description}</p>
+            <div className="flex gap-3">
               <a
-                href={project.photo}
+                href={project.git}
                 target="_blank"
                 rel="noreferrer"
-                className="mb-4"
+                className="bg-primary hover:bg-white hover:text-primary text-white text-sm px-4 py-2 rounded transition-all duration-300"
               >
-                <img src={project.photo} alt={project.title} />
+                GitHub
               </a>
-              <h3 className="text-primary font-semibold text-lg">
-                {project.title}
-              </h3>
-              <p className=" text-white mt-1">{project.description}</p>
-              <div className="mt-5">
-                <a
-                  href={project.git}
-                  className="btn transition-all duration-500 bg-primary py-2 px-6 rounded text-white hover:bg-white hover:text-primary"
-                >
-                  GitHub
-                </a>
-                <a
-                  href={project.url}
-                  className="btn outline py-1.5 px-9 rounded border-none ml-5 text-white "
-                >
-                  Project Link
-                </a>
-              </div>
+              <a
+                href={project.url}
+                target="_blank"
+                rel="noreferrer"
+                className="border border-white text-white text-sm px-4 py-2 rounded hover:bg-white hover:text-primary transition-all duration-300"
+              >
+                Visit Site
+              </a>
             </div>
-          );
-        })}
+          </motion.div>
+        ))}
       </div>
     </div>
   );
