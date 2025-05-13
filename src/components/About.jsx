@@ -21,10 +21,10 @@ const About = () => {
         transition={{ delay: 0.2, duration: 0.7 }}
       >
         Hi, My name is Akinwande-Ajose Aaron Olayinka, a First-class graduate of
-        Computer Science at Lagos State University. I am a motivated Frontend
+        Computer Science at Lagos State University. <br />I am a motivated Frontend
         Developer with more than 2 years of hands-on experience in building and
         maintaining responsive, high-performance web applications using React.js,
-        Next.js, and Tailwind CSS. I have a proven track record of enhancing
+        Next.js, and Tailwind CSS. <br />I have a proven track record of enhancing
         application speed and usability through strategic performance
         optimizations and collaborative UI/UX design. My major skills are listed
         below.
