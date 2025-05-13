@@ -35,23 +35,23 @@ const Home = () => {
             </motion.p>
 
             <motion.div
-              className="grid grid-cols-3 mt-5 gap-3"
+              className="flex justify-between mt-5 gap-3"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
               <Link to="about" smooth={true} spy={true}>
-                <button className="btn transition-all duration-500 bg-primary py-2 px-4 rounded text-white hover:bg-white hover:text-primary">
+                <button className="btn h-full transition-all duration-500 bg-primary py-2 px-4 rounded text-white hover:bg-white hover:text-primary">
                   About Me
                 </button>
               </Link>
               <Link to="projects" smooth={true} spy={true}>
-                <button className="btn outline py-1.5 px-6 rounded border-none text-white">
+                <button className="btn h-full outline py-1.5 px-6 rounded border-none text-white">
                   Projects
                 </button>
               </Link>
               <a href={AaronResume} download="Aaron Resume">
-                <button className="btn transition-all duration-500 bg-primary py-2 px-4 rounded text-white hover:bg-white hover:text-primary">
+                <button className="btn h-full transition-all duration-500 bg-primary py-2 px-4 rounded text-white hover:bg-white hover:text-primary">
                   Resume
                 </button>
               </a>
@@ -60,7 +60,7 @@ const Home = () => {
 
           {/* Image */}
           <motion.div
-            className="order-first md:order-last relative w-full h-96 md:w-[500px] md:h-[500px] rounded-full overflow-hidden"
+            className="order-first md:order-last relative w-full  md:w-[500px] md:h-[500px] rounded-full overflow-hidden"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}

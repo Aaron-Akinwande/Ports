@@ -27,6 +27,14 @@ const Projects = () => {
       git: "https://github.com/Community-With-No-Name/sms",
       url: "https://www.easysch.com/best-college/login",
     },
+      {
+      title: "Pub App",
+      description:
+        "A pub meal and drink app built with Next.js allows users to browse and order food and drinks from a local pub. The app features a responsive menu interface, real-time updates on item availability, and a smooth ordering process. ",
+      photo: "/pub.jpg",
+      git: "https://github.com/Aaron-Akinwande/pub-meal-and-drinks-app",
+      url: "https://pub-meal-and-drinks-app.vercel.app/",
+    },
   ];
 
   return (
