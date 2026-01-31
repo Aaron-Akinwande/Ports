@@ -71,7 +71,7 @@ const Home = () => {
       </div>
 
       {/* Background bar */}
-      <div className="mt-5 h-48 bg-[#181824] w-full mx-auto absolute left-0 hidden md:block"></div>
+      {/* <div className="mt-5 h-48 bg-[#181824] w-full mx-auto absolute left-0 hidden md:block"></div> */}
     </div>
   );
 };
