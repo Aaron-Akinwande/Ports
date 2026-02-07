@@ -9,22 +9,22 @@ import {
 const Projects = () => {
   const projects = [
     {
-      title: "Weather-On-The-Go",
+      title: "Zenon",
       description:
-        "A live website for finding real-time information about the weather around you or in a particular location.",
-      photo: "/wotg.jpg",
-      git: "https://github.com/Aaron-Akinwande/Weather-On-The-Go",
-      url: "https://weather-on-the-go.netlify.app/",
+        "A technology solutions platform that provides custom software development, expert consulting, and innovative digital solutions to help businesses adapt and grow.",
+      photo: "/zenon.png",
+      git: "https://github.com/zenon-systems/zenon-web-app",
+      url: "https://zenon.systems/",
       tags: ["React", "API", "Responsive"],
     },
     {
-      title: "UsePeng",
+      title: "Exodus Consulting Limited",
       description:
-        "A company website that allows couples to plan their dream weddings from the comfort of their devices.",
-      photo: "/peng.png",
-      git: "https://usepeng.com/",
-      url: "https://github.com/Community-With-No-Name/peng",
-      tags: ["Next.js", "Full-stack", "E-commerce"],
+        "EXODUS is a strategy and people advisory firm operating at the intersection of strategy, systems, and execution.",
+      photo: "/exodus.png",
+      git: "https://github.com/Aaron-Akinwande/exodus-consulting",
+      url: "https://www.exodusconsults.com/",
+      tags: ["Next.js", "Consulting", "SEO Optimized"],
     },
     {
       title: "EasySCH",
