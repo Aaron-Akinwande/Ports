@@ -1,12 +1,19 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
+import { motion } from "framer-motion";
 import facebook from "../assets/socials/facebook.png";
 import instagram from "../assets/socials/instagram.png";
 import email from "../assets/socials/sms.png";
 import { FaLinkedin } from "react-icons/fa6";
+import {
+  PaperAirplaneIcon,
+  CheckCircleIcon,
+  ExclamationCircleIcon,
+} from "@heroicons/react/24/outline";
 
 const Contact = () => {
   const form = useRef();
+  const [status, setStatus] = useState(null); // 'success', 'error', or null
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -18,97 +25,271 @@ const Contact = () => {
       .then(
         () => {
           console.log("SUCCESS!");
+          setStatus("success");
           e.target.reset();
+          setTimeout(() => setStatus(null), 5000);
         },
         (error) => {
           console.log("FAILED...", error.text);
-        }
+          setStatus("error");
+          setTimeout(() => setStatus(null), 5000);
+        },
       );
   };
 
-  return (
-    <div className="md:px-10 px-7 my-10" id="contact">
-      <div className="flex flex-col md:flex-row">
-        {/* text and icons */}
-        <div className="md:w-1/2">
-          <h1 className="text-primary font-semibold text-3xl mt-16">
-            Connect with me:
-          </h1>
-          <p className="my-3 text-white md:w-3/4 leading-[2]">
-            Satisfied with me? Please contact me
-          </p>
-          {/* social icons */}
-          <div className="flex ">
-            <a
-              href="https://web.facebook.com/aaron.akinwande/"
-              target="_blank"
-              // rel="noreferrer"
-            >
-              <img src={facebook} alt="" />
-            </a>
-            <a
-              className="ml-4"
-              href="https://www.instagram.com/aaron_akinwande/"
-              target="_blank"
-              // rel="noreferrer"
-            >
-              <img src={instagram} alt="" />
-            </a>
-            <a
-              className="ml-4"
-              href="aaronakinwande@gmail.com"
-              target="_blank"
-              // rel="noreferrer"
-            >
-              <img src={email} alt="" />
-            </a>
-            <a
-              className="ml-4"
-              href="https://www.linkedin.com/in/aaron-akinwande-ajose-720b18288"
-              target="_blank"
-              // rel="noreferrer"
-            >
-              <div className=" text-[#7562e0] h-full w-full text-3xl rounded-lg flex justify-center items-center">
+  const socialLinks = [
+    {
+      name: "Facebook",
+      icon: facebook,
+      url: "https://web.facebook.com/aaron.akinwande/",
+      color: "from-blue-600 to-blue-400",
+    },
+    {
+      name: "Instagram",
+      icon: instagram,
+      url: "https://www.instagram.com/aaron_akinwande/",
+      color: "from-pink-600 to-purple-600",
+    },
+    {
+      name: "Email",
+      icon: email,
+      url: "mailto:aaronakinwande@gmail.com",
+      color: "from-red-600 to-orange-500",
+    },
+  ];
 
-              <FaLinkedin />
-              </div>
-            </a>
+  return (
+    <div
+      className="md:px-10 px-7 py-20 bg-[#0a0a12] relative overflow-hidden"
+      id="contact"
+    >
+      {/* Background decorative elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
+
+      <div className="relative z-10">
+        {/* Section header */}
+        <motion.div
+          className="mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-12 h-1 bg-gradient-to-r from-primary to-purple-600 rounded-full"></div>
+            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+              Get In Touch
+            </span>
+            <div className="w-12 h-1 bg-gradient-to-l from-primary to-purple-600 rounded-full"></div>
           </div>
-        </div>
-        {/* form */}
-        <div className="md:w-1/2">
-          <p className="mt-16 text-white text-2xl mb-6">
-            Contact me, let's make magic together
+          <h1 className="text-white font-bold text-4xl md:text-5xl mb-4">
+            Let's Work Together
+          </h1>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            Have a project in mind? Let's create something amazing together
           </p>
-          <form ref={form} onSubmit={sendEmail}>
-            <input
-              type="text"
-              name="name"
-              placeholder="Name:"
-              className="bg-[#F5F5F5] bg-opacity-10 py-3 px-3 md:w-3/4 w-full rounded "
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address:"
-              className="bg-[#F5F5F5] bg-opacity-10 py-3 px-3 md:w-3/4 w-full rounded my-3"
-            />
-            <textarea
-              name="message"
-              id="message"
-              cols="54"
-              rows="4"
-              className="bg-[#F5F5F5] bg-opacity-10 py-3 px-3 md:w-3/4 w-full rounded mb-2"
-              placeholder="Message Content:"
-            ></textarea>
-            <button
-              type="submit"
-              value="send"
-              className="btn transition-all duration-500 bg-primary py-2 px-12 rounded text-white hover:bg-white hover:text-primary block"
+        </motion.div>
+
+        <div className="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+          {/* Left side - Contact info and socials */}
+          <motion.div
+            className="lg:w-2/5"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            {/* Contact card */}
+            <div className="bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1e] border border-gray-800 rounded-2xl p-8 mb-8">
+              <h2 className="text-white font-bold text-2xl mb-4">
+                Connect with me
+              </h2>
+              <p className="text-gray-400 leading-relaxed mb-8">
+                I'm always excited to discuss new projects, creative ideas, or
+                opportunities to be part of your vision. Let's make magic
+                together!
+              </p>
+
+              {/* Social links */}
+              <div className="space-y-4">
+                <p className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-4">
+                  Follow Me
+                </p>
+                <div className="flex gap-4">
+                  {socialLinks.map((social, index) => (
+                    <motion.a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="group relative w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl flex items-center justify-center hover:border-primary/50 transition-all duration-300"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.5 }}
+                      whileHover={{ y: -4 }}
+                    >
+                      <img
+                        src={social.icon}
+                        alt={social.name}
+                        className="w-6 h-6 object-contain filter brightness-110 group-hover:brightness-125 transition-all"
+                      />
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${social.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300`}
+                      ></div>
+                    </motion.a>
+                  ))}
+
+                  {/* LinkedIn with custom icon */}
+                  <motion.a
+                    href="https://www.linkedin.com/in/aaron-akinwande-ajose-720b18288"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="group relative w-12 h-12 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl flex items-center justify-center hover:border-primary/50 transition-all duration-300"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                    whileHover={{ y: -4 }}
+                  >
+                    <FaLinkedin className="text-primary text-2xl group-hover:scale-110 transition-transform" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600 to-blue-400 opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300"></div>
+                  </motion.a>
+                </div>
+              </div>
+            </div>
+
+            {/* Info cards */}
+            <motion.div
+              className="space-y-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6 }}
             >
-              Send
-            </button>
-          </form>
+              <div className="bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-xl p-5">
+                <p className="text-gray-400 text-sm mb-1">Email</p>
+                <a
+                  href="mailto:aaronakinwande@gmail.com"
+                  className="text-white font-semibold hover:text-primary transition-colors"
+                >
+                  aaronakinwande@gmail.com
+                </a>
+              </div>
+              <div className="bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-xl p-5">
+                <p className="text-gray-400 text-sm mb-1">Location</p>
+                <p className="text-white font-semibold">Lagos, Nigeria</p>
+              </div>
+            </motion.div>
+          </motion.div>
+
+          {/* Right side - Contact form */}
+          <motion.div
+            className="lg:w-3/5"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1e] border border-gray-800 rounded-2xl p-8">
+              <h2 className="text-white font-bold text-2xl mb-2">
+                Send me a message
+              </h2>
+              <p className="text-gray-400 mb-8">
+                Fill out the form below and I'll get back to you as soon as
+                possible
+              </p>
+
+              <form ref={form} onSubmit={sendEmail} className="space-y-5">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-gray-400 text-sm font-medium mb-2"
+                  >
+                    Your Name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    required
+                    placeholder="John Doe"
+                    className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-gray-400 text-sm font-medium mb-2"
+                  >
+                    Email Address
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    required
+                    placeholder="john@example.com"
+                    className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-400 text-sm font-medium mb-2"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    name="message"
+                    id="message"
+                    required
+                    rows="5"
+                    placeholder="Tell me about your project..."
+                    className="w-full bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl py-3.5 px-4 text-white placeholder-gray-500 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none"
+                  ></textarea>
+                </div>
+
+                <button
+                  type="submit"
+                  className="group w-full flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-primary/50 transform hover:-translate-y-1 transition-all duration-300"
+                >
+                  <span>Send Message</span>
+                  <PaperAirplaneIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </form>
+
+              {/* Status messages */}
+              {status === "success" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-6 flex items-center gap-3 bg-green-500/10 border border-green-500/30 rounded-xl p-4"
+                >
+                  <CheckCircleIcon className="w-6 h-6 text-green-500 flex-shrink-0" />
+                  <p className="text-green-500 font-medium">
+                    Message sent successfully! I'll get back to you soon.
+                  </p>
+                </motion.div>
+              )}
+
+              {status === "error" && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mt-6 flex items-center gap-3 bg-red-500/10 border border-red-500/30 rounded-xl p-4"
+                >
+                  <ExclamationCircleIcon className="w-6 h-6 text-red-500 flex-shrink-0" />
+                  <p className="text-red-500 font-medium">
+                    Failed to send message. Please try again.
+                  </p>
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

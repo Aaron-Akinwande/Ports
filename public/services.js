@@ -1,112 +1,291 @@
+import {
+  // Frontend Development
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJsSquare,
+  FaGitAlt,
+  FaGithub,
+  FaNpm,
+  FaFigma,
+  // Cloud & DevOps
+  FaAws,
+  FaDocker,
+  FaLinux,
+} from "react-icons/fa";
+
+import {
+  SiNextdotjs,
+  SiTailwindcss,
+  SiTypescript,
+  SiRedux,
+  SiKubernetes,
+  SiTerraform,
+  SiNginx,
+  // SiVisualstudiocode,
+  SiPostman,
+  SiWebpack,
+  SiEslint,
+} from "react-icons/si";
+
+import {
+  // TbBrandBash,
+  TbCloudComputing,
+  TbNetwork,
+  TbShieldLock,
+  TbChartBar,
+  TbDatabaseExport,
+} from "react-icons/tb";
+
+import { MdSecurity, MdDns, MdBackup } from "react-icons/md";
+
+import { HiServer } from "react-icons/hi";
+
 const services = [
   {
-    category: "Frontend Tools",
+    category: "Frontend Development",
     items: [
       {
-        id: 7,
+        id: 1,
+        name: "React.js",
+        description: "Building dynamic, component-based user interfaces",
+        Icon: FaReact,
+        color: "#61DAFB",
+      },
+      {
+        id: 2,
+        name: "Next.js",
+        description: "Server-side rendering and static site generation",
+        Icon: SiNextdotjs,
+        color: "#000000",
+      },
+      {
+        id: 3,
+        name: "Tailwind CSS",
+        description: "Utility-first CSS for rapid UI development",
+        Icon: SiTailwindcss,
+        color: "#06B6D4",
+      },
+      {
+        id: 4,
+        name: "JavaScript",
+        description: "Modern ES6+ JavaScript development",
+        Icon: FaJsSquare,
+        color: "#F7DF1E",
+      },
+      {
+        id: 5,
+        name: "TypeScript",
+        description: "Type-safe JavaScript for scalable applications",
+        Icon: SiTypescript,
+        color: "#3178C6",
+      },
+      {
+        id: 6,
         name: "HTML5",
-        description:
-          "I use semantic HTML5 to structure modern, accessible web pages.",
-        image: "/icons/code.png",
+        description: "Semantic and accessible markup",
+        Icon: FaHtml5,
+        color: "#E34F26",
+      },
+      {
+        id: 7,
+        name: "CSS3",
+        description: "Advanced styling and animations",
+        Icon: FaCss3Alt,
+        color: "#1572B6",
       },
       {
         id: 8,
-        name: "TAILWIND CSS",
-        description: "I build responsive and scalable UIs with Tailwind CSS.",
-        image: "/icons/code.png",
+        name: "Redux",
+        description: "State management for complex applications",
+        Icon: SiRedux,
+        color: "#764ABC",
       },
+    ],
+  },
+  {
+    category: "Cloud & DevOps",
+    items: [
       {
         id: 9,
-        name: "JAVASCRIPT",
-        description:
-          "I write clean and maintainable JavaScript code for both frontend and backend applications.",
-        image: "/icons/javascript.png",
+        name: "AWS",
+        description: "Cloud infrastructure and serverless solutions",
+        Icon: FaAws,
+        color: "#FF9900",
       },
-    ],
-  },
-  {
-    category: "Libraries",
-    items: [
-      {
-        id: 10,
-        name: "REACT.JS",
-        description:
-          "I develop dynamic single-page applications using React.js.",
-        image: "/icons/code.png",
-      },
-      {
-        id: 19,
-        name: "REDUX & REACT-REDUX",
-        description:
-          "I manage complex state logic using Redux and React-Redux.",
-        image: "/icons/code.png",
-      },
+      // {
+      //   id: 10,
+      //   name: "Docker",
+      //   description: "Containerization and microservices deployment",
+      //   Icon: FaDocker,
+      //   color: "#2496ED",
+      // },
       {
         id: 11,
-        name: "NEXT.JS",
-        description:
-          "I build fast and optimized React-based apps with Next.js.",
-        image: "/icons/code.png",
+        name: "Linux",
+        description: "System administration and server management",
+        Icon: FaLinux,
+        color: "#FCC624",
       },
+      // {
+      //   id: 12,
+      //   name: "Kubernetes",
+      //   description: "Container orchestration and scaling",
+      //   Icon: SiKubernetes,
+      //   color: "#326CE5",
+      // },
       {
         id: 13,
-        name: "TYPESCRIPT",
-        description:
-          "I use TypeScript to write type-safe and scalable JavaScript applications.",
-        image: "/icons/javascript.png",
-      },
-    ],
-  },
-  {
-    category: "Backend",
-    items: [
-      {
-        id: 5,
-        name: "NODE.JS & EXPRESS.JS ",
-        description:
-          "I have a solid understanding of Node.js for backend and Express.js for server-side logic and APIs .",
-        image: "/icons/javascript.png",
-      },
-    ],
-  },
-  {
-    category: "Workflow",
-    items: [
-      {
-        id: 4,
-        name: "VERSION CONTROL",
-        description:
-          "I use version control systems such as Git and GitHub to manage code efficiently.",
-        image: "/icons/git-repo.png",
+        name: "CI/CD",
+        description: "Automated testing and deployment pipelines",
+        Icon: TbCloudComputing,
+        color: "#6366F1",
       },
       {
         id: 14,
-        name: "GIT & GITHUB",
-        description:
-          "I manage projects and collaborate with teams using Git and GitHub.",
-        image: "/icons/git-repo.png",
+        name: "Terraform",
+        description: "Infrastructure as code provisioning",
+        Icon: SiTerraform,
+        color: "#7B42BC",
       },
+      // {
+      //   id: 15,
+      //   name: "Nginx",
+      //   description: "Web server and reverse proxy configuration",
+      //   Icon: SiNginx,
+      //   color: "#009639",
+      // },
       {
-        id: 18,
-        name: "SCRUM",
-        description:
-          "I work well in agile teams, following Scrum methodologies for effective delivery.",
-        image: "/icons/web-scraping.png",
+        id: 16,
+        name: "Git",
+        description: "Version control and collaboration",
+        Icon: FaGitAlt,
+        color: "#F05032",
       },
     ],
   },
+  // {
+  //   category: "Network & Security",
+  //   items: [
+  //     {
+  //       id: 17,
+  //       name: "Network Config",
+  //       description: "Network architecture and configuration",
+  //       Icon: TbNetwork,
+  //       color: "#6366F1",
+  //     },
+  //     // {
+  //     //   id: 18,
+  //     //   name: "VPC Setup",
+  //     //   description: "Virtual private cloud design and implementation",
+  //     //   Icon: HiServer,
+  //     //   color: "#8B5CF6",
+  //     // },
+  //     {
+  //       id: 19,
+  //       name: "Load Balancing",
+  //       description: "Traffic distribution and high availability",
+  //       Icon: TbChartBar,
+  //       color: "#10B981",
+  //     },
+  //     // {
+  //     //   id: 20,
+  //     //   name: "SSL/TLS",
+  //     //   description: "Certificate management and secure connections",
+  //     //   Icon: TbShieldLock,
+  //     //   color: "#F59E0B",
+  //     // },
+  //     // {
+  //     //   id: 21,
+  //     //   name: "Firewall",
+  //     //   description: "Security groups and network access control",
+  //     //   Icon: MdSecurity,
+  //     //   color: "#EF4444",
+  //     // },
+  //     {
+  //       id: 22,
+  //       name: "DNS",
+  //       description: "Domain management and routing configuration",
+  //       Icon: MdDns,
+  //       color: "#3B82F6",
+  //     },
+  //     {
+  //       id: 23,
+  //       name: "Monitoring",
+  //       description: "CloudWatch, Prometheus, and alerting systems",
+  //       Icon: TbChartBar,
+  //       color: "#14B8A6",
+  //     },
+  //     // {
+  //     //   id: 24,
+  //     //   name: "Backup & Recovery",
+  //     //   description: "Data protection and disaster recovery strategies",
+  //     //   Icon: MdBackup,
+  //     //   color: "#A855F7",
+  //     // },
+  //   ],
+  // },
   {
-    category: "Others",
+    category: "Development Tools",
     items: [
+      // {
+      //   id: 25,
+      //   name: "VS Code",
+      //   description: "Primary code editor with extensions",
+      //   Icon: SiVisualstudiocode,
+      //   color: "#007ACC",
+      // },
+      // {
+      //   id: 26,
+      //   name: "Postman",
+      //   description: "API testing and development",
+      //   Icon: SiPostman,
+      //   color: "#FF6C37",
+      // },
       {
-        id: 6,
-        name: "MICROSOFT OFFICE",
-        description:
-          "I am proficient in Microsoft Word, Excel, PowerPoint, and Access.",
-        image: "/icons/web-scraping.png",
+        id: 27,
+        name: "GitHub",
+        description: "Code repository and collaboration platform",
+        Icon: FaGithub,
+        color: "#181717",
+      },
+      {
+        id: 28,
+        name: "Figma",
+        description: "UI/UX design and prototyping",
+        Icon: FaFigma,
+        color: "#F24E1E",
+      },
+      // {
+      //   id: 29,
+      //   name: "Bash/Shell",
+      //   description: "Scripting and automation",
+      //   Icon: TbBrandBash,
+      //   color: "#4EAA25",
+      // },
+      {
+        id: 30,
+        name: "npm/yarn",
+        description: "Package management for Node.js",
+        Icon: FaNpm,
+        color: "#CB3837",
+      },
+      // {
+      //   id: 31,
+      //   name: "Webpack",
+      //   description: "Module bundling and optimization",
+      //   Icon: SiWebpack,
+      //   color: "#8DD6F9",
+      // },
+      {
+        id: 32,
+        name: "ESLint",
+        description: "Code quality and linting",
+        Icon: SiEslint,
+        color: "#4B32C3",
       },
     ],
-  }
+  },
 ];
 
 export default services;

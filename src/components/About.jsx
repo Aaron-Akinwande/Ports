@@ -1,58 +1,207 @@
 import React from "react";
 import Services from "./Services";
 import { motion } from "framer-motion";
+import {
+  AcademicCapIcon,
+  BriefcaseIcon,
+  CodeBracketIcon,
+  SparklesIcon,
+} from "@heroicons/react/24/outline";
 
 const About = () => {
+  const stats = [
+    { number: "3+", label: "Years Experience", icon: BriefcaseIcon },
+    { number: "20+", label: "Projects Completed", icon: CodeBracketIcon },
+    { number: "100%", label: "Client Satisfaction", icon: SparklesIcon },
+  ];
+
   return (
-    <div className="md:px-10 px-7 sm:-mt-24" id="about">
-      <motion.h1
-        className="text-primary font-bold text-4xl mt-10 mb-6"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        About me:
-      </motion.h1>
+    <div
+      className="md:px-10 px-7 py-20 bg-[#0a0a12] relative overflow-hidden"
+      id="about"
+    >
+      {/* Background decorative elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-purple-600/5 rounded-full blur-3xl"></div>
 
-      <motion.p
-        className="text-white text-lg md:w-2/3 leading-relaxed mb-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.7 }}
-      >
-        Hi, My name is Akinwande-Ajose Aaron Olayinka, a First-class graduate of
-        Computer Science at Lagos State University. <br />I am a motivated Frontend
-        Developer with more than 2 years of hands-on experience in building and
-        maintaining responsive, high-performance web applications using React.js,
-        Next.js, and Tailwind CSS. <br />I have a proven track record of enhancing
-        application speed and usability through strategic performance
-        optimizations and collaborative UI/UX design. My major skills are listed
-        below.
-      </motion.p>
+      <div className="relative z-10">
+        {/* Section header */}
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-12 h-1 bg-gradient-to-r from-primary to-purple-600 rounded-full"></div>
+            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+              Get to know me
+            </span>
+          </div>
+          <h1 className="text-white font-bold text-4xl md:text-5xl">
+            About Me
+          </h1>
+        </motion.div>
 
-      <motion.div
-        className="md:flex items-center gap-6 bg-[#2a2a3a] p-6 rounded-xl shadow-md mb-14"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-      >
-        <div className="text-primary text-7xl font-extrabold mb-4 md:mb-0">
-          2+
+        {/* Main content grid */}
+        <div className="grid md:grid-cols-2 gap-12 mb-16">
+          {/* Left column - Story */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+            className="space-y-6"
+          >
+            <div className="bg-gradient-to-br from-primary/10 to-purple-600/10 border border-primary/20 rounded-2xl p-6 backdrop-blur-sm">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-purple-600 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
+                  <AcademicCapIcon className="w-7 h-7 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold text-lg mb-2">
+                    Educational Background
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    First-class graduate in Computer Science from Lagos State
+                    University, where I built a strong foundation in algorithms,
+                    data structures, and software engineering principles.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-white font-semibold text-xl">My Journey</h3>
+              <p className="text-gray-400 leading-relaxed">
+                Hi, I'm{" "}
+                <span className="text-white font-semibold">
+                  Akinwande-Ajose Aaron Olayinka
+                </span>
+                , a passionate Frontend Developer with over 3 years of hands-on
+                experience crafting exceptional digital experiences.
+              </p>
+              <p className="text-gray-400 leading-relaxed">
+                I specialize in building and maintaining responsive,
+                high-performance web applications using modern technologies like{" "}
+                <span className="text-primary font-semibold">React.js</span>,
+                <span className="text-primary font-semibold"> Next.js</span>,
+                and
+                <span className="text-primary font-semibold">
+                  {" "}
+                  Tailwind CSS
+                </span>
+                .
+              </p>
+              <p className="text-gray-400 leading-relaxed">
+                My approach combines strategic performance optimizations with
+                collaborative UI/UX design to create applications that not only
+                look great but deliver exceptional user experiences.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right column - Highlights */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            className="space-y-6"
+          >
+            {/* Experience highlight */}
+            <div className="relative bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1e] border border-primary/20 rounded-2xl p-8 overflow-hidden group hover:border-primary/40 transition-all duration-300">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+
+              <div className="relative z-10">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent">
+                    3+
+                  </div>
+                  <div className="h-16 w-1 bg-gradient-to-b from-primary to-purple-600 rounded-full"></div>
+                  <div>
+                    <p className="text-white font-semibold text-lg">Years of</p>
+                    <p className="text-gray-400">Experience</p>
+                  </div>
+                </div>
+                <p className="text-gray-400 leading-relaxed">
+                  Translating complex requirements into clean, maintainable code
+                  with a strong focus on accessibility and user experience.
+                </p>
+              </div>
+            </div>
+
+            {/* Core strengths */}
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { label: "Clean Code", value: "100%" },
+                { label: "Responsive", value: "100%" },
+                { label: "Performance", value: "95%" },
+                { label: "Accessibility", value: "98%" },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
+                  className="bg-[#1a1a2e] border border-gray-800 rounded-xl p-4 hover:border-primary/40 transition-colors duration-300"
+                >
+                  <div className="text-2xl font-bold text-primary mb-1">
+                    {item.value}
+                  </div>
+                  <div className="text-gray-400 text-sm">{item.label}</div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
-        <p className="text-white text-xl">
-          Years of experience translating complex requirements into clean,
-          maintainable code with a strong focus on accessibility and user
-          experience.
-        </p>
-      </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.7 }}
-      >
-        <Services />
-      </motion.div>
+        {/* Stats section */}
+        <motion.div
+          className="grid md:grid-cols-3 gap-6 mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5, duration: 0.7 }}
+        >
+          {stats.map((stat, index) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 + index * 0.1, duration: 0.5 }}
+              className="relative bg-gradient-to-br from-[#1a1a2e] to-[#0f0f1e] border border-gray-800 rounded-2xl p-6 group hover:border-primary/40 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500"></div>
+
+              <div className="relative z-10 flex items-center gap-4">
+                <div className="w-14 h-14 bg-gradient-to-br from-primary/20 to-purple-600/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <stat.icon className="w-7 h-7 text-primary" />
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-white mb-1">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-400 text-sm">{stat.label}</div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Services section */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.7, duration: 0.7 }}
+        >
+          <Services />
+        </motion.div>
+      </div>
     </div>
   );
 };

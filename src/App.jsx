@@ -1,4 +1,3 @@
-
 import "./App.css";
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -8,17 +7,15 @@ import Home from "./components/Home";
 import Projects from "./components/Projects";
 
 function App() {
-  
-
   return (
     <>
-      <div className="max-w-7xl mx-auto  pt-4">
-        <Header/>
-        <Home/>
-        <About/>
-        <Projects/>
-        <Contact/>
-        <Footer/>
+      <Header />
+      <Home />
+      <div className="max-w-7xl mx-auto">
+        <About />
+        <Projects />
+        <Contact />
+        <Footer />
       </div>
     </>
   );
