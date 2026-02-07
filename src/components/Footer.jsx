@@ -215,8 +215,7 @@ const Footer = () => {
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           <p className="text-gray-500 text-sm">
-            Built with <span className="text-red-500 animate-pulse">♥</span>{" "}
-            using React & Tailwind CSS
+            Built  using React & Tailwind CSS
           </p>
         </motion.div>
       </div>
